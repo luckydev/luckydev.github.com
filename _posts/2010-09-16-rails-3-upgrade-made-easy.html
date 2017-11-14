@@ -1,0 +1,11 @@
+---
+layout: post
+title: Rails 3 Upgrade Made easy !
+date: '2010-09-16T11:35:00.000-07:00'
+author: Anand
+tags:
+- rails
+comments: true
+---
+
+With Rails 3 release, existing rails applications are getting upgraded to Rails 3. Rails has so many advantages compared to older versions and its always better to do the upgrade now if not later.<br /><br />Rails community has churned out a very good plugin for making this step a painless process. You can get this plugin&nbsp;&nbsp; rails_upgrade&nbsp; <a href="http://github.com/rails/rails_upgrade">here </a>. Just install the plugin and follow the instructions given in its README file.&nbsp; <br /><br />Here are some of the things which you have to take care of.<br /><br /><b>Ruby versions:</b> <br />Make sure you run the compatible versions of ruby ( Ruby 1.8.7 or Ruby  1.9.2). If you are not used to working with <a href="http://rvm.beginrescueend.com/">rvm (ruby version manager)</a>, this is the right time. Use rvm to install multiple versions of ruby and install Rails 3 with either ruby 1.8.7 and ruby 1.9.2 and without disturbing your existent environments. <br /><br /><b>Plugins:</b> <br />Care has to be taken in the plugins used in the rails application. This is not a fact to be worried about. Most of the popular plugins are upgraded to work with Rails and some plugins work well in the older versions itself. <br /><br /><b>Cloud Platforms:</b><br />If you application is hosted on a dedicated server, its not a problem. You can install the necessary ruby versions and you can start the upgrade process. But when you are in platforms like Heroku, you've got to take care of the ruby version they support. Heroku (at the time of this writing) supports only Ruby 1.8.7. The support for ruby 1.9.2 is on the way as per their <a href="http://docs.heroku.com/rails3">Rails 3 help page</a><b> </b><br /><b><br /></b><br /><b>Resources for Upgrade</b><br />Ryan Bates has done 2 <a href="http://railscasts.com/episodes/225-upgrading-to-rails-3-part-1">excellent screencasts</a> on how to upgrade your applications to Rails 3. Here is <a href="http://omgbloglol.com/post/344792822/the-path-to-rails-3-introduction">another excellent post</a> that will be of help. <a href="http://edgeguides.rubyonrails.org/3_0_release_notes.html">Rails 3 release notes</a> gives useful information on this.

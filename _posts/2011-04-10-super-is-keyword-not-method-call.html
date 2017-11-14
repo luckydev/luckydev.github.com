@@ -1,0 +1,11 @@
+---
+layout: post
+title: super is a keyword, not a method call!
+date: '2011-04-10T00:09:00.000-07:00'
+author: Anand
+tags:
+- ruby
+comments: true
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Methods can be overridden in subclasses of ruby. It is just a process of rewriting method definition, as it make sense in the current class/object. <br /><br />Calling super ..  oops, sorry - writing super anywhere in the over-ridden method will cause the method lookup to continue and the execute the first method found by the name. (If you want to learn about method lookup, here is a <a href="http://blog.rubybestpractices.com/posts/gregory/030-issue-1-method-lookup.html">good writeup</a> by <a href="https://github.com/sandal">Gregory Brown</a>. Here are some examples of how super can be used.<br /><br /><br /><a name='more'></a><br /><br /><br /><script src="https://gist.github.com/912113.js?file=super.rb"></script><br /><br /><script src="https://gist.github.com/912115.js?file=super.rb"></script><br /><br /><script src="https://gist.github.com/912116.js?file=super.rb"></script><br /><br /><script src="https://gist.github.com/912117.js?file=super.rb"></script><br /><br />Note the lines where super is written. super by default forwards all arguments to the previous method definition, unless and until you write parenthesis after it. super is not a method call though, it is just a keyword in ruby and should not be imagined as calling super(), as in other languages.</div>

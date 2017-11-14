@@ -1,0 +1,12 @@
+---
+layout: post
+title: jQuery Live in Prototype
+date: '2011-02-01T14:06:00.000-08:00'
+author: Anand
+tags:
+- jquery
+- prototype
+comments: true
+---
+
+I am not sure whether there are any prototype plugins for doing this, but I know for sure that , at the time of this blog post, jQuery "live" method has not been implemented in Prototype. One more reason to like JQuery !<br /><br />But, what if you are trapped in a project where Prototype is used and you've got to do things in prototype ways. Well, its just after all javascript. Not a problem. There are a few places where Prototype is not as comfortable as JQuery.<br /><br />"live" method is one such instance. For example, in your page, if you are expecting a new element via ajax calls, which was not present during initial page load - you can hook an event handler to it using jQuery. i.e, you are hooking an handler for some element that was not even present when your script ran. thats the power of "live" method.<br /><br />Since Prototype lacks a direct call like "live", people have found several ways to do it. One popular way is event delegation using parents. Let me explain it in simple words.<br /><br />In this technique, we don't actually listen to the "expected new" element. we instead listen to one of its parents that already existed during initial page load. Then inside the parent's event handler, we check whether the "expected new element" was actually where the event occurred. Prototype's <a href="http://api.prototypejs.org/dom/Event/findElement/">"Event.findElement()"</a> method is used for it. Then, if that is true, we can do whatever we want on that event.<br /><br />Simply saying, we listen to the parent. And the parent element tells us whether a new element exists and whether the event happened on that new element.<br /><br /><script src="https://gist.github.com/806761.js"> </script><br /><br />And for a specific example, here is one.<br /><br /><script src="https://gist.github.com/806764.js"> </script><br /><br />Here, we are listening to "a" tag that was loaded dynamically via ajax inside the parent "content" element. "cotent" could be a div for instance. This has been working well for me. So I pretty much use this technique whenever I need such functionality using Prototype. I hope it helps somebody.

@@ -1,0 +1,13 @@
+---
+layout: post
+title: Test for Positive cases first
+date: '2011-02-19T19:15:00.000-08:00'
+author: Anand
+tags:
+- rails
+- ruby
+- tests
+comments: true
+---
+
+TDD is a religion in Ruby and Ruby on rails community. In any project, you will have to write test cases in any form. But the depth to which testing is done varies between any two programmers. Some programmers concentrate on testing each and every dimension of the feature they are implementing. Some programmers just write small amount of tests, to concentrate on the core use case of a feature. But I would say that we have to find a sweet spot between these two levels. Neither too extreme Nor too less. <br /><br />For example, if you are writing a Sign Up form page. You obviously would've set strong validations so that mal-users cannot enter invalid data into our forms.<br /><br />Too Extreme testing:<br /><br />In the extreme case, a developer might test the form, with his test cases, for every possible type of input and see if we throw an error to the user. So if the form may get, say 2 sets of valid data getting entered and say, 20 sets of invalid data possibilities, the programmer might write 22 test examples to check whether we catch them all and treat them appropriately. <br /><br />To less testing:<br /><br />The programmer might pick up just the positive cases that can be entered in the form, and then write test cases on it to check whether we handle them appropriately in our application. <br /><br />Optimism:<br /><br />Its always better to choose optimistic number of cases to test against. In the above case, I would pick up all the valid data sets and some frequently occurring invalid data sets and then write the test cases to test whether we handle them properly. <br /><br />In my view, all we have to care about is to handle our good users really well, i.e, we have to make sure that we deliver what we promise in our application. Handling inappropriate data sets is a different subject, but our test cases should live as a living agreement to make sure that we do the right things really well.

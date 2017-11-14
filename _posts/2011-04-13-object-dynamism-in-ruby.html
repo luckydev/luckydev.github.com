@@ -1,0 +1,11 @@
+---
+layout: post
+title: Object Dynamism in Ruby
+date: '2011-04-13T21:13:00.000-07:00'
+author: Anand
+tags:
+- ruby
+comments: true
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">When an object in Ruby is created, it has methods and instance variables that are initially defined in its class. But that doesn't stop that object from getting new capabilities. They get more powers later by their singleton classes or when their parent class gets new methods. Let me tell you about the first way. <br /><br />Every object have its own class (apart from the class from which it was instantiated). That class is called as singleton class (or some would call it ghost class, eigen class, uniclass, etc.,). Singleton classes are unique to an object. And ruby will look for methods in that class before it looks into a class, when a method is called on that object. Here is code snippet that demonstrates singleton class.<br /><br /><a name='more'></a><br /><br /><script src="https://gist.github.com/918849.js?file=od1.rb"></script><br /><br />The shout_hello method was added only to john's singleton class. <br /><br />Here is a second way in which the original class gets more methods after the object is created. You see the class gets more methods and ruby will find and invoke them. Unlike other languages, classes are not like "strict" rules boxes of what can go into an object. In ruby, they are just scopes and they get opened and closed to give more powers to their objects.<br /><br /><script src="https://gist.github.com/918849.js?file=od2.rb"></script><br /><br />Here is the code snippet from Rails source code where the super duper class in Ruby, "Object" gets opened for more methods to be added. <a href="http://bit.ly/gC7qSr">http://bit.ly/gC7qSr</a><br /><br />There is one more thing. A third way to add more capabilities/methods to an object in ruby. That is by modules. We are going to create a module, extend the object's singleton class with that module. <br /><br /><script src="https://gist.github.com/918849.js?file=obmodule.rb"></script><br /><br />Cool huh !?</div>

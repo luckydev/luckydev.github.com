@@ -1,0 +1,14 @@
+---
+layout: post
+title: Difference between Proc and Lambda
+date: '2011-08-13T22:57:00.000-07:00'
+author: Anand
+tags:
+- difference
+- ruby
+- proc
+- lambda
+comments: true
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Proc and Lambda are used to create code blocks. After creating them, we can pass them around our code, just like variables.<br /><br />But there are 2 significant differences we have to keep in mind.<br /><br />1. Suppose a Proc or a lambda is used to create a code block inside of a method. If the Proc/Lambda has a return statement inside of its code, in the case of Proc, the whole method is returned. But in the case of Lambda, its not. The execution continues to any further statements inside the method. Here is the code fragment that explains this difference.<br /></div><br /><script src="https://gist.github.com/1144620.js"> </script><br /><br />2. A Proc will not check if the arguments are passed to it are of the same number as its parameters. A Lambda will throw an error if we violate the number of parmeters. <br /><br /><br /><script src="https://gist.github.com/1144621.js"> </script><br /><br />You see, Proc is very naughty :) It won't check for the number of arguments and it will return without the permission of the method in which it resides!

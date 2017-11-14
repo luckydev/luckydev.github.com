@@ -1,0 +1,14 @@
+---
+layout: post
+title: RVM, RubyGems and Bundler -  How gems are installed ?
+date: '2011-06-18T07:08:00.000-07:00'
+author: Anand
+tags:
+- rubygems
+- ruby
+- bundler
+- rvm
+comments: true
+---
+
+Earlier when I started programming using ruby (system ruby), it was all clean. I used to install gems with <i>sudo gem install somegem</i> .  Then came rvm and it asked me to install gems without sudo like: <i>gem install somegem</i>.  Then came bundler, which asked me to install gems by <i>bundle install</i>. <br /><br />Since then, I was  confused about how things work using these 2 tools on top of ruby. Well, I decided to put an end to that confusion and here is how they work. <br /><br />When you use <br /><br /><script src="https://gist.github.com/1033080.js?file=gem_install"></script><br /><br />rubygems would install that gem in the place defined by $GEM_HOME environment variable. Now this is the variable that dominates where rvm puts gems in and where bundler puts gems in.<br /><br />I suppose you are using rvm to manage multiple rubies. When you switch rubies using rvm, the $GEM_HOME variable changes. rvm changes it. <br /><br /><script src="https://gist.github.com/1033080.js?file=rvm_gem_home"></script><br /><br />When we use bundler install to manage dependencies, bundler simply call gem install under hood for each of the gems defined in Gemfile. Lets see this in terminal.<br /><br />First create a new rails project, it comes with a Gemfile. <br /><br /><script src="https://gist.github.com/1033080.js?file=create%20a%20new%20rails%20project"></script><br /><br />Lets then create a new gemset for this project and use it<br /><br /><script src="https://gist.github.com/1033080.js?file=set%20up%20new%20rvm%20gemset%20and%20use%20it"></script><br /><br />Install bundler and check $GEM_HOME location for any gems installed.<br /><br /><script src="https://gist.github.com/1033080.js?file=install%20bundler%20in%20the%20gemset"></script><br /><br />Do a bundle install in this project and check $GEM_HOME again. <br /><br /><script src="https://gist.github.com/1033080.js?file=bundle_install_in_project"></script>

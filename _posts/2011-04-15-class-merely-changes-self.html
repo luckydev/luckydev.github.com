@@ -1,0 +1,11 @@
+---
+layout: post
+title: "'class << ' merely changes the self"
+date: '2011-04-15T09:57:00.000-07:00'
+author: Anand
+tags:
+- ruby
+comments: true
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on">Many ruby programmers use class &lt;&lt; self inside some class definition to create class methods. But the actual meaning behind this class &lt;&lt; self is completely different. Using it for creating class methods is just one usecase.<br /><br />class &lt;&lt; soomeobject, actually changes 'self' object inside a definition block. In ruby, in any place there is something called as current object or 'self'. If you are calling a method and if you don't specify a receiver or object on which the method has to be called (like someobject.methodname() ), the method will be called on 'self' or current object inside that scope.<br /><br /><a name='more'></a><ol><li>Inside Instance methods, self is "the object instantiated from the corresponding class".</li><li> Inside class methods and class definitions, self is the "the class object". </li><li> Inside Module methods, self is either the "instance of the class that includes it" or "object that extends itself with the module". </li><li> Inside Module definition, outside of module methods, self is "the module object". </li></ol>So like this, in every scope, self changes itself. If you want to enforce self to be a particular object in particular place in your program, you use class &lt;&lt; self. Here are some self-explanatory code snippets that demonstrates this.<br /><br /><br /><br /><script src="https://gist.github.com/921993.js?file=object_self.rb"></script><br /><br /><script src="https://gist.github.com/921993.js?file=class_self.rb"></script><br /><br /><script src="https://gist.github.com/921993.js?file=module_self.rb"></script><br /><br />And now comes more familiar way of using class &lt;&lt; self.  <br /><br /><script src="https://gist.github.com/921993.js?file=MyClass.rb"></script><br /><br /><br />And there is nothing called as class methods. <a href="http://www.rubyinair.com/2011/04/ruby-classes-are-objects-too.html">Classes are pure ruby objects</a>. Going by that logic, class methods are nothing but <a href="http://www.rubyinair.com/2011/04/object-dynamism-in-ruby.html">instance methods of singleton class of an object</a>(saying it differently,  singleton methods)</div>

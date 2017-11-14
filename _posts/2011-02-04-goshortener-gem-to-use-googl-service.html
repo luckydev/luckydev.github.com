@@ -1,0 +1,14 @@
+---
+layout: post
+title: 'GoShortener: gem to use goo.gl service'
+date: '2011-02-04T23:21:00.000-08:00'
+author: Anand
+tags:
+- ruby
+- google
+- gem
+- github
+comments: true
+---
+
+Recently, Google released its api for <a href="http://code.google.com/apis/urlshortener/v1/getting_started.html"> its URL shortener service</a>. I might use this service in future, so I've created a small ruby wrapper/gem "goshortener". <br /><br />You can use Google's json api directly without any ruby wrapper like goshortener. But doing that involves, requesting google servers and handling & parsing the json responses, etc., <br /><br />goshortener eliminates these problems. This gem currently exposes two methods, #shorten and #lengthen, with their names clearly expressing what they do. Installation and usage instructions can be found in <a href="http://github.com/luckydev/goshortener">its github project page</a><br /><br />Google api for this service is currently in version 1. There might be lots of improvements to this service in the future. I hope I will maintain this goshortener gem to match all the capabilities google might give via its api.<br /><br />goshortener is hosted in <a href="https://rubygems.org/gems/goshortener">rubygems.org</a> and the source code is hosted in <a href="http://github.com/luckydev/goshortener">github</a>. If you find any issues with the gem, please log them <a href="https://github.com/luckydev/goshortener/issues">here</a>.
