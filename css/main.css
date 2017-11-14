@@ -2,6 +2,11 @@
   margin-top: 50px;
 }
 
+a.go-home {
+  color:black;
+  text-decoration: none;
+}
+
 .sidebar > .profile-pic {
   width: 200px;
   height: 266px;
@@ -23,9 +28,9 @@ ul.posts {
   padding-left: 0px;
 }
 
-.home-title {
+/*.home-title {
   margin: 10px 0;
-}
+}*/
 
 .sidebar .links {
   list-style: none;
